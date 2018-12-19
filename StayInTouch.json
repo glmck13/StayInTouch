@@ -1,0 +1,59 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "stay in touch",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "StayInTouch",
+                    "slots": [
+                        {
+                            "name": "member",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        }
+                    ],
+                    "samples": [
+                        "if {member} sent something",
+                        "if {member} posted something",
+                        "if you've heard from {member}",
+                        "what did {member} have to say",
+                        "have you heard anything from {member}",
+                        "have you heard from {member}",
+                        "did you hear anything from {member}",
+                        "did you hear from {member}",
+                        "did {member} post anything",
+                        "is there a post from {member}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        }
+    }
+}
