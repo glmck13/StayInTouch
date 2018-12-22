@@ -14,7 +14,8 @@ if msg.is_multipart():
     for part in msg.walk():
         ctype = part.get_content_type()
         if re.match("text/.*", ctype):
-            text = part.get_payload(decode=True)
+            if not text:
+                text = part.get_payload(decode=True)
         elif re.match("audio/.*", ctype):
             fd = open(AudioFile + "." + re.search(".*/(.*)", ctype).group(1), "w")
             fd.write(part.get_payload(decode=True))
