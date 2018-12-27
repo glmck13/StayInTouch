@@ -1,2 +1,5 @@
 # StayInTouch
-App to read messages from a gmail account (text &amp; voice), and access them through an Alexa skill
+App to read messages from a gmail account (text &amp; voice), and access them through an Alexa skill.
+
+# My Christmas Message
+First, I'd like to wish a Merry Christmas to everyone here today. As you know, I'm always looking for ways that we can all better stay in touch with each other, so this year I am giving gifts that will help you all to do precisely that. My first gift is a new Alexa app called "Stay in Touch". I will give you instructions for how to activate the app on your Alexa device.  Unlike other apps that I've written, you all will supply the content for this one.  Whenever you open the app it will play the last set of messages it has received from any of you. If you want to post a message to the app, include the address "tbd@gmail.com" in any text message or email that you send. The app will read your message in an Alexa voice that has been personally assigned to each of you. In addition to text-based messages, you can also post voice messages on the app so everyone can hear you speak directly.  To post a voice message, open the "Voice Memos" app on your iPhone, record a message, then send it to "tbd@gmail.com".  I'm looking forward to hearing from all of you, so please do  try to "Stay in Touch"! 
