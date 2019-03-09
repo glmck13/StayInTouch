@@ -101,7 +101,7 @@ Suffix=""
 [ "$Filter" != '*' ] && Suffix="from $Member"
 
 if [ ! "$Playlist" ]; then
-	print "<p>I'm sorry.  I didn't find anything $Suffix.</p>"
+	print "<p>I'm sorry.  I didn't find any messages $Suffix.</p>"
 else
 	sox $Playlist $AudioFile
 	n=$(ls -1t -- *-$Filter.* | wc -w)
