@@ -18,9 +18,12 @@ done
 
 . $AWSCREDS
 
-asterisk -x "core waitfullybooted"
-asterisk -x "dialplan remove extension 6000@default"
-asterisk -x 'dialplan add extension 6000,1,System(/bin/echo\ \"${STRFTIME(${EPOCH},,%m%d%Y-%H:%M:%S)}\"\ \"${CALLERID(all)}\"\ >>/tmp/cdr.txt) into default replace'
+asterisk -x 'core waitfullybooted'
+asterisk -x 'dialplan remove extension 6000@default'
+asterisk -x 'dialplan add extension 6000,1,System(/bin/echo\ \"${STRFTIME(${EPOCH},,%m%d%Y-%H:%M:%S)}\"\ \"${CALLERID(all)}${CALLBACK}\"\ >>/tmp/cdr.txt) into default replace'
+asterisk -x 'dialplan add extension 6000,2,Dial(DAHDI/1,20,r(info)) into default replace'
+asterisk -x 'dialplan add extension 6000,3,System(/bin/echo\ \"${STRFTIME(${EPOCH},,%m%d%Y-%H:%M:%S)}\"\ \"${DIALSTATUS}\"\ >>/tmp/cdr.txt) into default replace'
+asterisk -x 'dialplan add extension 6000,4,Set(GLOBAL(CALLBACK)=\"\") into default replace'
 
 >$CDRFILE; chmod 777 $CDRFILE
 
@@ -29,7 +32,7 @@ do
 	[ -f $RINGPID ] && kill $(<$RINGPID) >/dev/null 2>&1
 	rm -f $RINGTONE $RINGPID
 
-	cdr=${cdr#*<} cdr=${cdr%>*}
+	cdr=${cdr##*<} cdr=${cdr%>*}
 
 	[ ! "$cdr" ] && continue
 
@@ -44,7 +47,7 @@ do
 	fi
 
 	(
-		loop=4; while (( loop-- > 0 ))
+		loop=3; while (( loop-- > 0 ))
 		do
 			play $RINGTONE vol 2.0 >/dev/null 2>&1; sleep 3
 		done
