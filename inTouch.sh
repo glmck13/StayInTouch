@@ -105,7 +105,7 @@ if [ ! "$Playlist" ]; then
 else
 	sox $Playlist $AudioFile
 	n=$(ls -1t -- *-$Filter.* | wc -w)
-	print "<p>I found $n $(plural $n message) $Suffix in my inbox!</p><audio controls><source src="$URLBASE/${AudioFile##*/}"></audio>"
+	print "<p>I found $n $(plural $n message) $Suffix!</p><audio controls><source src="$URLBASE/${AudioFile##*/}"></audio>"
 	
 fi
 
