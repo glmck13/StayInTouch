@@ -31,7 +31,7 @@ umask 022
 AudioFile=$(ls $AudioFile.* 2>/dev/null)
 if [ -f "$AudioFile" ]; then
 	[ "${AudioFile#*.}" != mp3 ] && ffmpeg -i $AudioFile ${AudioFile%.*}.mp3 2>/dev/null
-	sox -v2 ${AudioFile%.*}.mp3 -r16k "$Date:$Seqno-$Member.mp3"
+	sox -v2 ${AudioFile%.*}.mp3 -r16k -c1 "$Date:$Seqno-$Member.mp3"
 	rm -f ${AudioFile%.*}.*
 
 elif [ -f "$TextFile" ]; then
